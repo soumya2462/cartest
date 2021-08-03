@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
-export default (Indicator = ({
+export default Indicator = ({
   itemCount,
   currentIndex,
   indicatorStyle,
@@ -22,7 +22,7 @@ export default (Indicator = ({
       )}
     </View>
   );
-});
+};
 
 export const renderIndicator = (
   count,
@@ -72,8 +72,6 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     marginRight: 5,
   },
-  active: {
-  },
-  inactive: {
-  },
+  active: {},
+  inactive: {},
 });

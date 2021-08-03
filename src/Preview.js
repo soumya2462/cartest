@@ -8,7 +8,7 @@ import {
   Platform,
 } from 'react-native';
 
-export default (Preview = ({
+export default Preview = ({
   style,
   item,
   imageKey,
@@ -28,9 +28,16 @@ export default (Preview = ({
         />
       </View>
       <Text style={styles.desc}>{item.desc}</Text>
+      <TouchableOpacity>
+        <View style={styles.buttonView}>
+          <Text style={styles.buttonText}>
+            View
+          </Text>
+        </View>
+      </TouchableOpacity>
     </TouchableOpacity>
   );
-});
+};
 
 const styles = StyleSheet.create({
   videoContainer: {
@@ -47,7 +54,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   desc: {
-      color:'#fff',
+    color: '#000',
     fontSize: 14,
     letterSpacing: 0,
     lineHeight: 24,
@@ -70,4 +77,18 @@ const styles = StyleSheet.create({
       },
     }),
   },
+  buttonView: {
+    backgroundColor: '#303371',
+    alignContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    width: 100,
+    height: 30,
+    borderRadius: 15,
+    marginTop: 40
+  },
+  buttonText: {
+    color: 'white'
+  }
 });
