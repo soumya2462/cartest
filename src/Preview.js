@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Platform,
 } from 'react-native';
+import Card from './Card';
 
 export default Preview = ({
   style,
@@ -22,18 +23,25 @@ export default Preview = ({
       style={[styles.videoContainer]}
       onPress={() => onPress(item)}>
       <View style={[styles.imageContainer, styles.shadow]}>
-        <Image
-          style={[styles.videoPreview, active ? {} : {height: 120}]}
+        <View
+          style={[styles.videoPreview, active ? {} : {height: 350}]}
           source={{uri: item[imageKey]}}
-        />
-      </View>
-      <Text style={styles.desc}>{item.desc}</Text>
-      <TouchableOpacity>
-        <View style={styles.buttonView}>
+        >
+          <Image style={[styles.imagePreview]}
+          source={{uri: item[imageKey]}}>
+
+          </Image>
+         <Text style={styles.desc}>{item.desc}</Text>
+         <View style={styles.buttonView}>
           <Text style={styles.buttonText}>
             View
           </Text>
         </View>
+        </View>
+      </View>
+     
+      <TouchableOpacity>
+       
       </TouchableOpacity>
     </TouchableOpacity>
   );
@@ -41,17 +49,26 @@ export default Preview = ({
 
 const styles = StyleSheet.create({
   videoContainer: {
-    width: 275,
-    paddingVertical: 28,
+    width: 250,
+    paddingVertical: 18,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 20,
+    marginRight: 5,
   },
   videoPreview: {
-    width: 275,
-    height: 155,
+    width: 200,
+    height: 250,
     borderRadius: 8,
     resizeMode: 'cover',
+    backgroundColor:'#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imagePreview:{
+    width: 50,
+    height: 50,
+    resizeMode: 'cover',
+    backgroundColor:'#fff',
   },
   desc: {
     color: '#000',

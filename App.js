@@ -12,7 +12,6 @@ import {
 
 import Preview from './src/Preview';
 import FlatListSlider from './src/FlatListSlider';
-import Card from './src/Card';
 
 export default class extends Component {
   constructor(props) {
@@ -46,7 +45,7 @@ export default class extends Component {
           <View style={styles.separator} />
           <ImageBackground
             source={require('./src/assets/background.png')}
-            style={{width: '100%', height: '100%'}}>
+            style={{width: '100%', height: '150%'}}>
             <View
               style={{
                 width: '100%',
@@ -63,7 +62,6 @@ export default class extends Component {
                 <Text>You have 3 Products</Text>
               </View>
             </View>
-            <Card style={styles.card}>
               <FlatListSlider
                 data={this.state.data}
                 width={275}
@@ -73,7 +71,6 @@ export default class extends Component {
                 indicatorActiveWidth={40}
                 contentContainerStyle={styles.contentStyle}
               />
-            </Card>
           </ImageBackground>
           <View style={styles.separator} />
         </ScrollView>
