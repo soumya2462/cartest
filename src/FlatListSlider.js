@@ -17,6 +17,7 @@ export default class FlatListSlider extends Component {
   static defaultProps = {
     data: [],
     imageKey: 'image',
+    iconImage: 'iconImage',
     local: false,
     width: Math.round(Dimensions.get('window').width),
     height: 230,
@@ -33,7 +34,7 @@ export default class FlatListSlider extends Component {
     timer: 3000,
     onPress: {},
     contentContainerStyle: {},
-    component: <ChildItem/>,
+    component: <ChildItem />,
   };
 
   constructor(props) {
@@ -49,13 +50,13 @@ export default class FlatListSlider extends Component {
 
   componentDidMount() {
     if (this.props.autoscroll) {
-      this.startAutoPlay();
+      //this.startAutoPlay();
     }
   }
 
   componentWillUnmount() {
     if (this.props.autoscroll) {
-      this.stopAutoPlay();
+      //this.stopAutoPlay();
     }
   }
 
@@ -81,6 +82,7 @@ export default class FlatListSlider extends Component {
               style: {width: this.props.width},
               item: item,
               imageKey: this.props.imageKey,
+              iconImage: this.props.iconImage,
               onPress: this.props.onPress,
               index: this.state.index % this.props.data.length,
               active: index === this.state.index,
@@ -121,7 +123,7 @@ export default class FlatListSlider extends Component {
         )}
       </View>
     );
-  };
+  }
 
   onViewableItemsChanged = ({viewableItems, changed}) => {
     if (viewableItems.length > 0) {

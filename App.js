@@ -19,19 +19,22 @@ export default class extends Component {
     this.state = {
       data: [
         {
-          image:
-            'https://images.unsplash.com/photo-1567226475328-9d6baaf565cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60',
-          desc: 'Silent Waters in the mountains in midst of Himilayas',
+          image: 'http://77.68.124.139/odisha-tourism/ota_api/02.png',
+          iconImage: '',
+          title: 'Moonstone Keychain',
+          desc: 'Choosing the Best Gemstone for Your Necklace and Jewelry',
         },
         {
-          image:
-            'https://images.unsplash.com/photo-1455620611406-966ca6889d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1130&q=80',
-          desc: 'Red fort in India New Delhi is a magnificient masterpeiece of humans',
+          image: 'http://77.68.124.139/odisha-tourism/ota_api/01.png',
+          iconImage: '',
+          title: 'Sapphire Keychain',
+          desc: 'Choosing the Best Gemstone for Your Necklace and Jewelry',
         },
         {
-          image:
-            'https://images.unsplash.com/photo-1477587458883-47145ed94245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-          desc: 'Sample Description below the image for representation purpose only',
+          image: '',
+          iconImage: 'http://77.68.124.139/odisha-tourism/ota_api/plus.png',
+          title: 'Add a Wearable',
+          desc: 'Don’t See One You Like? Choosing the Best Gemstone for Your Necklace and Jewelry',
         },
       ],
     };
@@ -41,39 +44,37 @@ export default class extends Component {
     const screenWidth = Math.round(Dimensions.get('window').width);
     return (
       <SafeAreaView>
-        <ScrollView>
-          <View style={styles.separator} />
-          <ImageBackground
-            source={require('./src/assets/background.png')}
-            style={{width: '100%', height: '150%'}}>
-            <View
-              style={{
-                width: '100%',
-                alignContent: 'center',
-                alignItems: 'center',
-                paddingTop: 30,
-              }}>
-              <Image
-                style={styles.tinyLogo}
-                source={require('./src/assets/account.png')}
-              />
-              <Text style={styles.textStyle}>Lottie Curtis</Text>
-              <View style={styles.tabletView}>
-                <Text>You have 3 Products</Text>
-              </View>
+        <View style={styles.separator} />
+        <ImageBackground
+          source={require('./src/assets/background.png')}
+          style={{width: '100%', height: '90%'}}>
+          <View
+            style={{
+              width: '100%',
+              alignContent: 'center',
+              alignItems: 'center',
+              paddingTop: 30,
+            }}>
+            <Image
+              style={styles.tinyLogo}
+              source={require('./src/assets/account.png')}
+            />
+            <Text style={styles.textStyle}>Lottie Curtis</Text>
+            <View style={styles.tabletView}>
+              <Text>You have 3 Products</Text>
             </View>
-              <FlatListSlider
-                data={this.state.data}
-                width={275}
-                timer={4000}
-                component={<Preview />}
-                onPress={item => alert(JSON.stringify(item))}
-                indicatorActiveWidth={40}
-                contentContainerStyle={styles.contentStyle}
-              />
-          </ImageBackground>
-          <View style={styles.separator} />
-        </ScrollView>
+          </View>
+          <FlatListSlider
+            data={this.state.data}
+            width={275}
+            timer={4000}
+            component={<Preview />}
+            onPress={item => alert(JSON.stringify(item))}
+            indicatorActiveWidth={10}
+            contentContainerStyle={styles.contentStyle}
+          />
+        </ImageBackground>
+        <View style={styles.separator} />
       </SafeAreaView>
     );
   }
@@ -97,6 +98,7 @@ const styles = StyleSheet.create({
   },
   tabletView: {
     marginTop: 10,
+    marginBottom: 100,
     height: 30,
     width: 160,
     backgroundColor: 'white',

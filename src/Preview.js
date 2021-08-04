@@ -13,37 +13,32 @@ export default Preview = ({
   style,
   item,
   imageKey,
+  iconImage,
   onPress,
   index,
   active,
   local,
 }) => {
   return (
-    <TouchableOpacity
-      style={[styles.videoContainer]}
-      onPress={() => onPress(item)}>
+    <View style={[styles.videoContainer]}>
       <View style={[styles.imageContainer, styles.shadow]}>
         <View
           style={[styles.videoPreview, active ? {} : {height: 350}]}
-          source={{uri: item[imageKey]}}
-        >
-          <Image style={[styles.imagePreview]}
           source={{uri: item[imageKey]}}>
-
-          </Image>
-         <Text style={styles.desc}>{item.desc}</Text>
-         <View style={styles.buttonView}>
-          <Text style={styles.buttonText}>
-            View
-          </Text>
-        </View>
+          <Image
+            style={[styles.imagePreview]}
+            source={{uri: item[imageKey]}}></Image>
+            <Image
+            style={[styles.iconImage]}
+            source={{uri: item[iconImage]}}></Image>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.desc}>{item.desc}</Text>
+          <View style={styles.buttonView}>
+            <Text style={styles.buttonText}>View</Text>
+          </View>
         </View>
       </View>
-     
-      <TouchableOpacity>
-       
-      </TouchableOpacity>
-    </TouchableOpacity>
+    </View>
   );
 };
 
@@ -56,38 +51,47 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   videoPreview: {
+    paddingLeft: 15,
+    paddingRight: 15,
     width: 200,
-    height: 250,
+    height: 350,
     borderRadius: 8,
     resizeMode: 'cover',
-    backgroundColor:'#fff',
-    justifyContent: 'center',
+    backgroundColor: '#fff',
+    alignContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
   },
-  imagePreview:{
-    width: 50,
-    height: 50,
+  imagePreview: {
+    width: 150,
+    height: 150,
     resizeMode: 'cover',
-    backgroundColor:'#fff',
+    //backgroundColor: '#fff',
+    position: 'absolute',
+    top: -60,
   },
   desc: {
-    color: '#000',
+    textAlign: 'center',
+    color: '#A0A9B8',
     fontSize: 14,
+    fontWeight: '600',
     letterSpacing: 0,
     lineHeight: 24,
     marginTop: 18,
   },
   imageContainer: {
+    padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
   shadow: {
     ...Platform.select({
       ios: {
-        shadowColor: 'white',
-        shadowOffset: {width: 0, height: 1},
-        shadowOpacity: 0.1,
-        shadowRadius: 5,
+        shadowColor: 'gray',
+        shadowOffset: {width: 3, height: 3},
+        shadowOpacity: 0.2,
+        shadowRadius: 6,
       },
       android: {
         elevation: 5,
@@ -103,9 +107,21 @@ const styles = StyleSheet.create({
     width: 100,
     height: 30,
     borderRadius: 15,
-    marginTop: 40
+    marginTop: 20,
   },
   buttonText: {
-    color: 'white'
-  }
+    color: 'white',
+  },
+  title: {
+    textAlign: 'center',
+    fontSize: 25,
+    paddingTop: 20,
+    color: '#4E5B76',
+    fontWeight: '700',
+  },
+  iconImage: {
+    width: 60,
+    height: 60,
+    resizeMode: 'cover',
+  },
 });
